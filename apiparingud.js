@@ -100,14 +100,15 @@ async function handleFormSubmit(event) {
 
 async function listiraamatud() {
 
-	const responseData = await getDataAsJson("http://localhost:5000/raamatud/");
+    const responseData = await getDataAsJson("https://raamatudapp-hfhhdqhbgefph7hv.northeurope-01.azurewebsites.net/raamatud/");
     const resultElement = document.getElementById("raamatud_result");
     resultElement.innerHTML = "";
 	for (var raamat of responseData.raamatud){
         raamat = raamat.split(".")[0];
-        resultElement.innerHTML += '<a href="http://localhost:5000/raamatud/'+raamat+'"  download="'+raamat+'.txt" >' +raamat+".txt</a> " +
-                '<a href="#" onclick="deleteObject(\'http://localhost:5000/raamatud/'+raamat+'/'+'\')" > [kustuta]</a>' +
-                "<br />";
+        resultElement.innerHTML += '<a href="https://raamatudapp-hfhhdqhbgefph7hv.northeurope-01.azurewebsites.net/raamatud/' + raamat + '"  download="' + raamat + '.txt" >' + raamat + ".txt</a> " +
+         '<a href="#" onclick="deleteObject(\'https://raamatudapp-hfhhdqhbgefph7hv.northeurope-01.azurewebsites.net/raamatud/' + raamat + '/\')" > [kustuta]</a>' +
+         "<br />";
+
     }
 }
 function handleResponse(form, responseData) {
